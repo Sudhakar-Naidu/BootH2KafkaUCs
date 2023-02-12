@@ -25,8 +25,8 @@ public class UpStreamService implements IUpStreamService {
     @Override
     public void publish(Integer count) {
         IntStream.range(0, count)
-                .forEach(i -> this.kafkaTemplate.send(upStreamTopic, String.valueOf(i),
-                                Order.builder().message(String.format("Message Count : %s", i)).status("Ordered").build()
+                .forEach(index -> this.kafkaTemplate.send(upStreamTopic, String.valueOf(index),
+                                Order.builder().message(String.format("Message Count : %s", index)).status("Ordered").build()
                         )
                 );
     }
