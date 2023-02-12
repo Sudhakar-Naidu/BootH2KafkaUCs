@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    #    url: jdbc:h2:mem:bootH2
+    url: jdbc:h2:file:./h2data
+    username: sa
+    password: bootH2
+    driverClassName: org.h2.Driver
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+  kafka:
+    consumer:
+      group-id: ups-group
+      auto-offset-reset: earliest
+    #    bootstrap-servers: 127.0.0.1:9092
+    bootstrap-servers: localhost:9092
+topics:
+  upstream: up-stream-topic
+  downstream: down-stream-topic
